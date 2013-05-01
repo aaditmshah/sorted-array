@@ -6,5 +6,6 @@
     "keywords": ["sorted", "array", "Neumann", "insertion", "sort", "insert", "binary", "search", "deletion", "delete"],
     "main": "lib/sorted-array.js",
     "scripts": ["lib/sorted-array.js"],
-    "license": "MIT"
+    "license": "MIT",
+    "twitter": "@zcombinator"
 }
