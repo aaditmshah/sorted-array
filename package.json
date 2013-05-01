@@ -1,7 +1,7 @@
 {
     "name": "sorted-array",
     "description": "An implementation of John von Neumann's sorted arrays in JavaScript. Implements insertion sort and binary search for fast insertion and deletion.",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "keywords": ["sorted", "array", "Neumann", "insertion", "sort", "insert", "binary", "search", "deletion", "delete"],
     "author": "Aadit M Shah (http://aaditmshah.github.com/) <aaditmshah@myopera.com>",
     "main": "lib/sorted-array.js",

@@ -19,6 +19,6 @@ var SortedArray = require("sorted-array");
 var sorted = new SortedArray(3, 1, 5, 2, 4);
 console.dir(sorted.array);                   // [1, 2, 3, 4, 5]
 sorted.search(3);                            // 2
-sorted.delete(3);                            // [1, 2, 4, 5]
+sorted.remove(3);                            // [1, 2, 4, 5]
 sorted.insert(3);                            // [1, 2, 3, 4, 5]
 ```
