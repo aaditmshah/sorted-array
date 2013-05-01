@@ -6,7 +6,7 @@ An implementation of John von Neumann's sorted arrays in JavaScript. Implements 
 
 Sorted arrays may be installed on [node.js](http://nodejs.org/ "node.js") via the [node package manager](https://npmjs.org/ "npm") using the command `npm install sorted-array`.
 
-You may also install it on [RingoJS](http://ringojs.org/ "Home - RingoJS") using the command `ringo-admin install aaditmshah/sorted-array`.
+You may also install it on [RingoJS](http://ringojs.org/ "Home - RingoJS") using the command `ringo-admin install javascript/sorted-array`.
 
 You may install it as a [component](https://github.com/component/component "component/component") for web apps using the command `component install javascript/sorted-array`.
 
