@@ -1,29 +1,52 @@
 {
-    "name": "sorted-array",
-    "description": "An implementation of John von Neumann's sorted arrays in JavaScript. Implements insertion sort and binary search for fast insertion and deletion.",
-    "version": "1.1.1",
-    "keywords": ["sorted", "array", "Neumann", "insertion", "sort", "insert", "binary", "search", "deletion", "delete"],
-    "author": "Aadit M Shah (http://aaditmshah.github.com/) <aaditmshah@fastmail.fm>",
-    "main": "sorted-array.js",
-    "maintainers": [{
-        "name": "Aadit M Shah",
-        "email": "aaditmshah@fastmail.fm",
-        "web": "http://aaditmshah.github.com/"
-    }],
-    "contributors": [{
-        "name": "Aadit M Shah",
-        "email": "aaditmshah@fastmail.fm",
-        "web": "http://aaditmshah.github.com/"
-    }],
-    "bugs": "https://github.com/javascript/sorted-array/issues",
-    "licenses": [{
-        "type": "MIT",
-        "url": "http://opensource.org/licenses/MIT"
-    }],
-    "repositories": [{
-        "type": "git",
-        "url": "https://github.com/javascript/sorted-array.git"
-    }],
-    "dependencies": {},
-    "homepage": "https://github.com/javascript/sorted-array"
+  "name": "sorted-array",
+  "description": "An implementation of John von Neumann's sorted arrays in JavaScript. Implements insertion sort and binary search for fast insertion and deletion.",
+  "version": "1.1.1",
+  "keywords": [
+    "sorted",
+    "array",
+    "Neumann",
+    "insertion",
+    "sort",
+    "insert",
+    "binary",
+    "search",
+    "deletion",
+    "delete"
+  ],
+  "author": "Aadit M Shah (http://aaditmshah.github.com/) <aaditmshah@fastmail.fm>",
+  "main": "sorted-array.js",
+  "maintainers": [
+    {
+      "name": "Aadit M Shah",
+      "email": "aaditmshah@fastmail.fm",
+      "web": "http://aaditmshah.github.com/"
+    }
+  ],
+  "contributors": [
+    {
+      "name": "Aadit M Shah",
+      "email": "aaditmshah@fastmail.fm",
+      "web": "http://aaditmshah.github.com/"
+    }
+  ],
+  "bugs": "https://github.com/javascript/sorted-array/issues",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://opensource.org/licenses/MIT"
+    }
+  ],
+  "repositoriy": {
+    "type": "git",
+    "url": "https://github.com/javascript/sorted-array.git"
+  },
+  "dependencies": {},
+  "homepage": "https://github.com/javascript/sorted-array",
+  "scripts": {
+    "test": "vows --spec"
+  },
+  "devDependencies": {
+    "vows": "^0.7.0"
+  }
 }
