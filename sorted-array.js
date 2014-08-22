@@ -11,7 +11,7 @@ SortedArray.prototype.insert = function(element) {
         var i = index,
             j = --index;
 
-        if (array[i] < array[j]) {
+        if (this.mapper(array[i]) < this.mapper(array[j])) {
             var temp = array[i];
             array[i] = array[j];
             array[j] = temp;
@@ -30,8 +30,11 @@ SortedArray.prototype.search = function(element) {
         var index = (high + low) / 2 >>> 0;
         var cursor = array[index];
 
-        if (cursor < element) low = index + 1;
-        else if (cursor > element) high = index;
+        var mappedCursor = this.mapper(cursor);
+        var mappedElement = this.mapper(element);
+
+        if (mappedCursor < mappedElement) low = index + 1;
+        else if (mappedCursor > mappedElement) high = index;
         else return index;
     }
 
@@ -47,6 +50,19 @@ SortedArray.prototype.remove = function(element) {
 function SortedArray() {
     var index = 0;
     this.array = [];
-    var length = arguments.length;
+
+    var length;
+
+    var last = arguments[arguments.length - 1];
+    if (typeof last === 'function') {
+        length = arguments.length - 1;
+        this.mapper = last;
+    } else {
+        length = arguments.length;
+        this.mapper = function(element) {
+            return element;
+        };
+    }
+
     while (index < length) this.insert(arguments[index++]);
 }
