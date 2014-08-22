@@ -1,12 +1,15 @@
-if (typeof module === "object") module.exports = SortedArray;
+if (typeof module === 'object') {
+    module.exports = SortedArray;
+}
 
-SortedArray.prototype.insert = function (element) {
+SortedArray.prototype.insert = function(element) {
     var array = this.array;
     var index = array.length;
     array.push(element);
 
     while (index) {
-        var i = index, j = --index;
+        var i = index,
+            j = --index;
 
         if (array[i] < array[j]) {
             var temp = array[i];
@@ -18,7 +21,7 @@ SortedArray.prototype.insert = function (element) {
     return this;
 };
 
-SortedArray.prototype.search = function (element) {
+SortedArray.prototype.search = function(element) {
     var low = 0;
     var array = this.array;
     var high = array.length;
@@ -35,7 +38,7 @@ SortedArray.prototype.search = function (element) {
     return -1;
 };
 
-SortedArray.prototype.remove = function (element) {
+SortedArray.prototype.remove = function(element) {
     var index = this.search(element);
     if (index >= 0) this.array.splice(index, 1);
     return this;
