@@ -16,9 +16,23 @@ The six line tutorial on sorted arrays:
 
 ```javascript
 var SortedArray = require("sorted-array");
-var sorted = new SortedArray(3, 1, 5, 2, 4);
-console.dir(sorted.array);                   // [1, 2, 3, 4, 5]
-sorted.search(3);                            // 2
-sorted.remove(3);                            // [1, 2, 4, 5]
-sorted.insert(3);                            // [1, 2, 3, 4, 5]
+var sorted = new SortedArray([3, 1, 5, 2, 4]);
+console.dir(sorted.array);                     // [1, 2, 3, 4, 5]
+sorted.search(3);                              // 2
+sorted.remove(3);                              // [1, 2, 4, 5]
+sorted.insert(3);                              // [1, 2, 3, 4, 5]
+```
+
+You may pass an optional [compare function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) as a second argument to the `SortedArray` constructor.
+
+You may also use the `SortedArray.comparing(property, array)` factory function to create a new `SortedArray` which compares values by their `property`. For example, to compare arrays by `length`:
+
+```javascript
+var SortedArray = require("sorted-array");
+var sorted = SortedArray.comparing(length, [[3,3,3], [1], [5,5,5,5,5], [2,2], [4,4,4,4]]);
+console.dir(sorted.array);              // [[1], [2,2], [3,3,3], [4,4,4,4], [5,5,5,5,5]]
+
+function length(a) {
+    return a.length;
+}
 ```
