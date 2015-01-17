@@ -3,7 +3,7 @@ var SortedArray = (function () {
         constructor: function (array, compare) {
             this.array   = [];
             this.compare = compare || compareDefault;
-            var length   = arguments.length;
+            var length   = array.length;
             var index    = 0;
 
             while (index < length) this.insert(array[index++]);
