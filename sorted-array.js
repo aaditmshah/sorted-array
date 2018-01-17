@@ -72,4 +72,5 @@ var SortedArray = (function () {
 }());
 
 if (typeof module === "object") module.exports = SortedArray;
-if (typeof define === "function" && define.amd) define(SortedArray);
+if (typeof define === "function" && define.amd)
+    define(function () { return SortedArray; });
