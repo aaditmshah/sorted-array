@@ -37,6 +37,10 @@ var SortedArray = (function () {
             // They can be equal for comparison purposes, but different objects with different data.
             // Respecting the chronological order can be important for many applications.
             pos++;
+            high = array.length-1;
+            while ((pos < high) && (compare(element, array[pos]) === 0)){
+                pos++;
+            }
             index = array.length;
             // Just to increase array size.
             array.push(element);            
