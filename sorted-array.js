@@ -1,44 +1,69 @@
 var SortedArray = (function () {
     var SortedArray = defclass({
+
         constructor: function (array, compare) {
             this.array   = [];
             this.compare = compare || compareDefault;
-            var length   = array.length;
-            var index    = 0;
-
+            var length   = array.length,
+                index    = 0;
             while (index < length) this.insert(array[index++]);
         },
         insert: function (element) {
-            var array   = this.array;
-            var compare = this.compare;
-            var index   = array.length;
+            var array   = this.array,
+                compare = this.compare,
+                high    = array.length-1,
+                low     = 0,
+                pos = -1,
+                index,
+                ordering;
 
-            array.push(element);
-
-            while (index > 0) {
-                var i = index, j = --index;
-
-                if (compare(array[i], array[j]) < 0) {
-                    var temp = array[i];
-                    array[i] = array[j];
-                    array[j] = temp;
-                }
+            // The array is sorted. You must find the position of new element in O(log(n)), not O(n).
+            while (high >= low) {
+                index    = (high + low) / 2 >>> 0;
+                ordering = compare(array[index], element);                
+                if (ordering < 0) low  = index + 1;
+                else if (ordering > 0) high = index - 1;
+                else {
+                    pos = index;
+                    break;
+                };
             }
+
+            if (pos === -1) {
+                // if element was not found, high < low.
+                pos = high;
+            }
+            // This assures that equal elements inserted after will be in a higher position in array.
+            // They can be equal for comparison purposes, but different objects with different data.
+            // Respecting the chronological order can be important for many applications.
+            pos++;
+            index = array.length;
+            // Just to increase array size.
+            array.push(element);            
+            // Much faster. No need to elements swap.
+            while (index > pos) {
+                array[index] = array[--index];
+            }
+            // Set the new element on its correct position.
+            array[pos] = element;
 
             return this;
         },
         search: function (element) {
-            var array   = this.array;
-            var compare = this.compare;
-            var high    = array.length;
-            var low     = 0;
+            var array   = this.array,
+                compare = this.compare,
+                high    = array.length-1,
+                low     = 0,
+                // In most languages, inner variable declaration makes the code slower.
+                index,
+                ordering;
 
-            while (high > low) {
-                var index    = (high + low) / 2 >>> 0;
-                var ordering = compare(array[index], element);
+            while (high >= low) {
+                index    = (high + low) / 2 >>> 0;
+                ordering = compare(array[index], element);
 
                      if (ordering < 0) low  = index + 1;
-                else if (ordering > 0) high = index;
+                else if (ordering > 0) high = index - 1;
                 else return index;
             }
 
@@ -53,7 +78,9 @@ var SortedArray = (function () {
 
     SortedArray.comparing = function (property, array) {
         return new SortedArray(array, function (a, b) {
-            return compareDefault(property(a), property(b));
+            // This should be faster than calling functions.
+            // Besides, this way it is not needed to create useless function to return property value.
+            return compareDefault(a[property], b[property]);
         });
     };
 
@@ -66,8 +93,17 @@ var SortedArray = (function () {
     }
 
     function compareDefault(a, b) {
-        if (a === b) return 0;
-        return a < b ? -1 : 1;
+        // Equality has a very low chance to happen. It should be the last option.
+        // At most two comparison tests.
+        // At most one jump execution in any case (changing to "else" code => jump).
+        if (a <= b) {
+            if (a < b)
+                return -1;
+            else
+                return 0;
+        }
+        else
+            return 1;
     }
 }());
 
