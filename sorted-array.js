@@ -94,16 +94,12 @@ var SortedArray = (function () {
 
     function compareDefault(a, b) {
         // Equality has a very low chance to happen. It should be the last option.
-        // At most two comparison tests.
-        // At most one jump execution in any case (changing to "else" code => jump).
-        if (a <= b) {
-            if (a < b)
-                return -1;
-            else
-                return 0;
-        }
-        else
+        if (a < b)
+            return -1;
+        else if (a > b)
             return 1;
+        else
+            return 0;
     }
 }());
 
