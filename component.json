@@ -2,7 +2,7 @@
     "name": "sorted-array",
     "repo": "aaditmshah/sorted-array",
     "description": "An implementation of John von Neumann's sorted arrays in JavaScript. Implements insertion sort and binary search for fast insertion and deletion.",
-    "version": "2.0.3",
+    "version": "2.0.4",
     "keywords": ["sorted", "array", "Neumann", "insertion", "sort", "insert", "binary", "search", "deletion", "delete"],
     "main": "sorted-array.js",
     "scripts": ["sorted-array.js"],
